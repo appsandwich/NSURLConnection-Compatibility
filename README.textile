@@ -1,0 +1,21 @@
+h1. NSURLConnection+Compatibility
+
+Drop-in replacement for iOS 5's [NSURLConnection sendAsynchronousRequest:queue:completionHandler:] method for iOS 4.x (and earlier).
+
+Will use the built-in method on iOS and falls back to the custom implementation if sendAsynchronousRequest is not available.
+
+h2. Usage
+
+<pre>
+#import "NSURLConnection+Compatibility.h"
+
+...
+
+
+[NSURLConnection as_sendAsynchronousRequest:request queue:_operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+	
+	...
+	
+}];
+
+</pre>
